@@ -54,6 +54,14 @@ N  EXPRESSION   RESULT
 2  "{?q,page}"  "?q=a%20b"
 ```
 
+`--only=N` keeps one row, the expression numbered N, and keeps its number:
+
+```text
+$ python -m uritpl trace --only=2 "/users{/id}{?q,page}" v.json
+N  EXPRESSION   RESULT
+2  "{?q,page}"  "?q=a%20b"
+```
+
 Explain the operator and variable specifications in a template.
 
 No files are needed for this example:
@@ -102,7 +110,7 @@ The help command prints these six usage lines, in this order:
 
 ```text
 usage: uritpl expand [--strict] TEMPLATE VARS
-usage: uritpl trace [--strict] TEMPLATE VARS
+usage: uritpl trace [--strict] [--only=N] TEMPLATE VARS
 usage: uritpl explain TEMPLATE
 usage: uritpl names TEMPLATE
 usage: uritpl encode [--reserved] TEXT
@@ -112,7 +120,9 @@ usage: uritpl check FILE...
 - `expand` substitutes values from a JSON variables file into a template. `--strict`
   makes the first undefined variable an error.
 - `trace` reports each expression and its expansion; `--strict` has the same meaning
-  as for `expand`.
+  as for `expand`. `--only=N` (a whole number from 1, written with the `=`) reports
+  only expression N after tracing the whole template; a number past the last expression
+  is an error (`expression 3 not found (the template has 2)`).
 - `explain` lists each expression's operator, form, and variable specifications.
 - `names` lists distinct variable names in first-appearance order.
 - `encode` percent-encodes the supplied text. `--reserved` preserves URI reserved

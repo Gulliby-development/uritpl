@@ -17,7 +17,7 @@ def invoke(argv, files=None, stdin=b""):
 def test_help_uses_the_single_ordered_registry_and_one_output_call(monkeypatch):
     expected = (
         "usage: uritpl expand [--strict] TEMPLATE VARS\n"
-        "usage: uritpl trace [--strict] TEMPLATE VARS\n"
+        "usage: uritpl trace [--strict] [--only=N] TEMPLATE VARS\n"
         "usage: uritpl explain TEMPLATE\n"
         "usage: uritpl names TEMPLATE\n"
         "usage: uritpl encode [--reserved] TEXT\n"
@@ -26,7 +26,7 @@ def test_help_uses_the_single_ordered_registry_and_one_output_call(monkeypatch):
     assert list(COMMANDS) == ["expand", "trace", "explain", "names", "encode", "check"]
     assert [usage for usage, adapter in COMMANDS.values()] == [
         "expand [--strict] TEMPLATE VARS",
-        "trace [--strict] TEMPLATE VARS",
+        "trace [--strict] [--only=N] TEMPLATE VARS",
         "explain TEMPLATE",
         "names TEMPLATE",
         "encode [--reserved] TEXT",
