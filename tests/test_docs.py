@@ -8,7 +8,7 @@ from uritpl.io import MemIo
 README = (Path(__file__).resolve().parents[1] / "README.md").read_text(encoding="utf-8")
 HELP_TEXT = (
     "usage: uritpl expand [--strict] TEMPLATE VARS\n"
-    "usage: uritpl trace [--strict] TEMPLATE VARS\n"
+    "usage: uritpl trace [--strict] [--only=N] TEMPLATE VARS\n"
     "usage: uritpl explain TEMPLATE\n"
     "usage: uritpl names TEMPLATE\n"
     "usage: uritpl encode [--reserved] TEXT\n"

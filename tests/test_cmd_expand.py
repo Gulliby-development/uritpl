@@ -9,7 +9,7 @@ from uritpl.io import MemIo
 
 _ADAPTERS = [
     (run_expand, EXPAND_USAGE, "expand [--strict] TEMPLATE VARS"),
-    (run_trace, TRACE_USAGE, "trace [--strict] TEMPLATE VARS"),
+    (run_trace, TRACE_USAGE, "trace [--strict] [--only=N] TEMPLATE VARS"),
 ]
 
 
